@@ -1,0 +1,31 @@
+.App{
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: 'main-serif';
+    src: url("./assets/fonts/Kalnia-VariableFont.ttf") format('truetype')
+}
+@font-face {
+    font-family: 'main-poppins';
+    src: url("./assets/fonts/Poppins-Regular.ttf") format('truetype')
+}
+
+h2.main-h2{
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 1;
+    font-family: 'main-serif';
+    color: #000;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width:300px){
+    h2.main-h2{
+        font-size: 30px;
+    }
+    
+}
+
