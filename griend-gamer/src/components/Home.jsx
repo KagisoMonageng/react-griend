@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { getUsers } from '../services/apiService';
+import { getGames } from '../services/apiService';
+import Image from './sub-components/Image';
+
 
 
 export default function Home() {
 
-    const [users, setUsers] = useState([])
+    const [games, setGames] = useState([])
 
     useEffect(() => {
-        const fetchUsers = async () => {
+        const fetchGames = async () => {
             try {
-                const users = await getUsers();
-                setUsers(users);
+                const games = await getGames();
+                setGames(games);
             } catch (error) {
                 console.error(error)
             }
         }
 
-        fetchUsers();
+        fetchGames();
     }, [])
 
 
@@ -24,20 +26,22 @@ export default function Home() {
 
     return (
         <div className='container px-2 mx-auto'>
-            <h2 className="main-h2">Users</h2>
+            <h2 className="main-h2">Games</h2>
 
             <div className="grid grid-cols-1 gap-x-4 gap-y-2 md:grid-cols-2 content-center">
 
-                {users && (
+                {games && (
                     <>
-                        {users.map((user, index) => (
+                        {games.map((game, index) => (
 
-                            <div class="card w-full md:w-96  ">
-                                <div class="card-body ">
-                                    <h2 class="card-title">{user.name}</h2>
-                                    <p>{user.address.street}<br />{user.address.city}</p>
-                                    <div class="card-actions justify-end">
-                                        <button class="btn btn-primary">View Location</button>
+                            <div key={game.game_id} className="card w-full md:w-96 ">
+                                  <Image game={game} />
+
+                                <div className="card-body ">
+                                    <h2 className="card-title">{game.name}</h2>
+                                    <p>{game.publisher}<br />{game.category}</p>
+                                    <div className="card-actions justify-end">
+                                        <button className="btn btn-primary">View Location</button>
                                     </div>
                                 </div>
                             </div>
