@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { CiCircleChevRight } from "react-icons/ci";
 import { gsap } from "gsap";
+import { Link, useNavigate } from 'react-router-dom'
 import { useGSAP } from "@gsap/react";
 import '../index.css'
 
@@ -10,6 +11,7 @@ const Login = () => {
     const [formData, setFormData] = useState({ email: '', password: '' })
     const [errors, setErrors] = useState({ email: '', password: '' });
 
+    const router = useNavigate()
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -19,7 +21,7 @@ const Login = () => {
     }
 
     const validateForm = () => {
-        let isValid = false;
+        let isValid = true;
         const newErrors = { email: '', password: '' };
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
@@ -47,11 +49,8 @@ const Login = () => {
     const submitFunc = (e) => {
         e.preventDefault();
         if (validateForm()) {
-            console.log(formData)
-        } else {
-            console.error("error on form")
+            router("/home")
         }
-
     }
 
 
@@ -97,7 +96,7 @@ const Login = () => {
                         </div>
 
                         <div className="mb-10 text-center">
-                            <p>Don't have an account? <a href="#" className='link'>Sign up</a></p>
+                            <p>Don't have an account? <Link to="/register" className='link'>Sign up</Link></p>
                         </div>
 
                         <button type='submit' className='btn btn-primary w-full gap-4'>Sign in <CiCircleChevRight size={25} /></button>

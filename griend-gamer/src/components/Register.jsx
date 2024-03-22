@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { CiCircleChevRight } from "react-icons/ci";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Link } from 'react-router-dom';
 
 export default function Register() {
 
@@ -218,7 +219,7 @@ export default function Register() {
                     </form>
 
                     <div className="mt-10 text-center animate-entry">
-                        <p>Already have an account? <a href="#" className='link'>Sign in</a></p>
+                        <p>Already have an account? <Link to="/login" className='link'>Sign in</Link></p>
                     </div>
 
                 </div>
