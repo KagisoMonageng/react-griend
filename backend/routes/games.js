@@ -7,7 +7,7 @@ const router = express.Router();
 
 //routes here
 //Games
-router.get("/getGames", games.getAllGames);
+router.get("/getGames/", games.getAllGames);
 
 router.get("/getGames/:gametag", games.getGamerFavs);
 

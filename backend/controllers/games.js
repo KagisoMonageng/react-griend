@@ -1,7 +1,8 @@
 const db = require("../config/db_config");
 
 exports.getAllGames = async (req, res) => {
-  const sql = "SELECT * FROM games ;"
+  const offset = req.params.offset;
+  const sql = "SELECT * FROM games;"
   db.query(sql, (err, results) => {
     if (results.rowCount == 0) {
       res.status(400).json({ message: "No games found" });

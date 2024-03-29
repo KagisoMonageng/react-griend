@@ -6,16 +6,20 @@ const http = axios.create({
     headers: { 'Content-Type': 'application/json' }
 })
 
-
-
-export const getGames = async () => {
+export const getGames = async (offset) => {
     try {
-        const res = await http.get('/games/getGames')
-        console.log(res)
+        const res = await http.get('/games/getGames/')
         return res.data
-
-
     } catch (error) {
-        throw new Error('Error fetching users:', error);
+        throw new Error('Error fetching games:', error);
+    }
+}
+
+export const getGame = async (game_id) => {
+    try {
+        const res = await http.get('/games/getGame/'+game_id)
+        return res.data
+    } catch (error) {
+        throw new Error('Error fetching games:', error);
     }
 }

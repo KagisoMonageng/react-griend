@@ -1,4 +1,4 @@
-.App{
+.App {
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
@@ -8,12 +8,13 @@
     font-family: 'main-serif';
     src: url("./assets/fonts/Kalnia-VariableFont.ttf") format('truetype')
 }
+
 @font-face {
     font-family: 'main-poppins';
     src: url("./assets/fonts/Poppins-Regular.ttf") format('truetype')
 }
 
-h2.main-h2{
+h2.main-h2 {
     font-size: 50px;
     font-weight: 600;
     line-height: 1;
@@ -22,10 +23,25 @@ h2.main-h2{
     margin-bottom: 10px;
 }
 
-@media screen and (max-width:300px){
-    h2.main-h2{
-        font-size: 30px;
-    }
-    
+span.lazy-load-image-background.opacity.lazy-load-image-loaded {
+    width: 100%;
 }
 
+.header {
+    padding: 20px 0;
+    background-image: linear-gradient(to bottom, #000000c3, transparent 80%);
+}
+
+.open-card {
+    margin-top: -83px;
+    padding-top: 40px;
+    background-image: linear-gradient(to bottom, transparent, #f7fcf0, #f7fcf0);
+    position: relative;
+    /* backdrop-filter: blur(1px); */
+}
+
+@media screen and (max-width:300px) {
+    h2.main-h2 {
+        font-size: 30px;
+    }
+}
